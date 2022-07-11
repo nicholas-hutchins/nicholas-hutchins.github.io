@@ -1,9 +1,0 @@
-remote_theme: pages-themes/minimal@v0.2.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
-
-title: Nicholas Hutchins
-description: I am a current PhD student at MIT advised by Pulin Li studying computational and systems biology.  I am interested in both natural and synthetic genetic circuits, those that enable diverse behaviors in nature and in the test tube.  In particular, I am looking for design principles that may enable us to build more sophisticated circuits for synthetic biology. I use machine and statistical learning techniques to try to infer these principles from the wealth of high-dimensional biological data. I am fortunate to be supported by an MIT Presidential Fellowship and the NSF Graduate Research Fellowship. 
-Before starting my PhD, I was a research associate at Twist Bioscience and received my BS from Caltech.
-
-theme: jekyll-theme-minimal
