@@ -1,89 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nicholas Hutchins</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<img src="ramen.jpg" alt="fig3", width=150>
-<br>
-<br>
-<b>Bio</b>
-<br>
-I am a current PhD student at MIT advised by <a href="https://wi.mit.edu/people/member/li">Pulin Li</a>, a member of the Whitehead Institute. My research focuses on how we represent biological 
-perturbations problems meaningfully in AI/ML approaches and create tools and approaches that illuminate aspects of biology that were not previously possible. Much of my graduate work has focused on how we 
-predictively model stem cell engineering and identify which combinations of perturbations drive cells into desired states. I am broadly interested in expanding and using the uncertainty
-quantification tool box to better understand the properties of ML models in biology. I have enjoyed working with many collaborators throughout my PhD, most notably at <a href="https://www.kira-learning.com/">Kira Learning</a>,
- <a href="https://www.gc-tx.com/">GC Therapeutics</a>, and <a href="https://www.microsoft.com/en-us/research/theme/biomedical-ml/people/">Microsoft Research New England</a>.
+<style>
+  :root {
+    --ink: #1a1a18;
+    --ink-muted: #5a5a56;
+    --ink-faint: #9a9a94;
+    --paper: #f7f5f0;
+    --paper-warm: #efe9de;
+    --paper-card: #ffffff;
+    --accent: #2d5a3d;
+    --accent-light: #e8f0ea;
+    --accent-mid: #4a7c5f;
+    --rule: #d4cdc2;
+    --serif: 'Lora', Georgia, serif;
+    --sans: 'Outfit', system-ui, sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
 
-<br>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-I am fortunate to be supported by an MIT Presidential Fellowship, an NSF Graduate Research Fellowship, 
-a Bryll Graduate Fellowship and a Whitehead Institute Innovation Award.
-<br>
-Before starting my PhD, I was a research associate at Twist Bioscience and received my BS from Caltech.
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
 
-<br>
-<br>
-<b>Publications</b>
-<br>
-<br>
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
 
-<br>
+  header {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
 
-<b>Nicholas Hutchins</b>, Miram Meziane, Claire Lu, Maisam Mitalipova, David Fischer, Pulin Li. <i>Reconstructing signaling histories of single cells via perturbation screens and transfer learning
-</i>, Nature Methods, Accepted (2026)
+  .photo-wrap img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    border: 1px solid var(--rule);
+  }
 
-<br>
+  .photo-placeholder {
+    width: 140px;
+    height: 140px;
+    border-radius: 4px;
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+  }
 
-<b>Nicholas Hutchins*</b>, Alex Cao*, Pulin Li. <i>Discovering What Is Possible: How Synthetic Biology Illuminates Development</i>, Cell Systems, Accepted (2026)
+  h1 {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
 
-<br>
+  .affiliation {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
 
+  .fellowship-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 1rem;
+  }
 
-<img src="pnas-fig3.jpeg" alt="fig3", width=450>
+  .pill {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 2px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    background: transparent;
+    white-space: nowrap;
+  }
 
-<br>
+  section {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
 
-Timothy M. Wannier, Sarah Gillespie, <b>Nicholas Hutchins</b>, R Scott McIsaac, Sheng-Yi Wu , Yi Shen, Robert E. Campbell, Kevin S Brown, Stephen L Mayo. <i>Monomerization of Far-Red Fluorescent Proteins</i>, Proceedings of the National Academy of Sciences, Nov. 13 (2018)
+  section:last-of-type { border-bottom: none; }
 
-<br>
-<br>
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
-<b>Talks</b>
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    display: block;
+  }
 
-<br>
-AIChE Annual Meeting | Abstract Selected Talk, Boston, MA 2025
+  .bio-text {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--ink);
+    max-width: 680px;
+  }
 
-<br>
-ISSCR AI and Digital Biology Symposium | Abstract Selected Talk, Seattle, WA 2025
+  .bio-text p { margin-bottom: 1.1em; }
+  .bio-text p:last-child { margin-bottom: 0; }
 
-<br>
-Keystone AI in Molecular Biology | Abstract Selected Talk, Santa Fe, NM 2025
+  .bio-text a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-light);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s;
+  }
 
-<br>
-AIChE Annual Meeting | Abstract Selected Talk, San Diego, CA 2024
+  .bio-text a:hover { text-decoration-color: var(--accent); }
 
-<br>
-Bioengineering and Translational Medicine | Abstract Selected Talk, San Diego, CA 2024
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
-<br>
-Santa Cruz Developmental Biology Meeting | Abstract Selected Talk, Santa Cruz, CA 2024
+  .pub {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
 
-<br>
-International Mammalian Synthetic Biology Workshop | Abstract Selected Talk, Boston, MA 2024
+  .pub-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--ink-faint);
+    padding-top: 3px;
+    letter-spacing: 0.03em;
+  }
 
-<br>
-Whitehead Institute Forum | Department talk, Boston, MA 2024
+  .pub-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-bottom: 0.25rem;
+  }
 
-<br>
-Bioengineering and Toxicology Seminar | Department talk, Boston, MA 2023, 2024
+  .pub-authors {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    line-height: 1.5;
+    margin-bottom: 0.2rem;
+  }
 
-<b>Poster Presentations</b>
+  .pub-authors strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
 
-<br>
+  .pub-venue {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--accent-mid);
+    letter-spacing: 0.04em;
+  }
 
-*-presenter
-<br>
-<br>
-Lucy Xu*, Dagney Cooke, <b>Nicholas Hutchins</b>, Tony Cox. <i>A New Twist on Antibody Library Engineering</i>, PEGS 2019 Boston, Apr. 8 (2019)
-<br>
-<br>
-Xiaozhe Ding*, Claire N. Bedbrook, <b>Nicholas Hutchins</b>, Viviana Gradinaru. Engineering Prokaryotic Repressors for Optical Sensing of Neurotransmitters, <i>Society for Neuroscience Conference Presentation</i> (2017)
+  .pub-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    padding: 2px 7px;
+    border-radius: 2px;
+    background: var(--accent-light);
+    color: var(--accent);
+    margin-left: 8px;
+    vertical-align: middle;
+    text-transform: uppercase;
+  }
 
+  .pub-figure {
+    margin-top: 1rem;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    max-width: 420px;
+  }
 
+  .pub-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 
+  .talk {
+    display: grid;
+    grid-template-columns: 100px 1fr 120px;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+
+  .talk:first-child { border-top: 1px solid var(--rule); }
+
+  .talk-venue {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  .talk-title {
+    font-size: 0.9rem;
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .talk-type {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    text-align: right;
+    letter-spacing: 0.04em;
+  }
+
+  .poster-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .poster {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .poster-dot {
+    padding-top: 6px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .poster-dot::before {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--rule);
+  }
+
+  .poster-text {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  .poster-text strong { color: var(--ink); font-weight: 500; }
+  .poster-text em { font-style: italic; }
+
+  .poster-venue {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    margin-top: 0.2rem;
+  }
+
+  footer {
+    padding: 2rem 0;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 640px) {
+    header { grid-template-columns: 1fr; }
+    .photo-wrap img, .photo-placeholder { width: 100px; height: 100px; }
+    h1 { font-size: 1.7rem; }
+    .talk { grid-template-columns: 1fr; gap: 0.25rem; }
+    .talk-type { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="photo-wrap">
+      <img src="ramen.jpg" alt="Nicholas Hutchins" onerror="this.outerHTML='<div class=\'photo-placeholder\'>photo</div>'">
+    </div>
+    <div class="header-text">
+      <p class="affiliation">PhD Student · MIT &amp; Whitehead Institute</p>
+      <h1>Nicholas Hutchins</h1>
+      <p style="font-size:0.9rem; color:var(--ink-muted); margin-top:0.5rem; max-width:480px;">
+        Biological AI/ML · Stem cell engineering · Uncertainty quantification
+      </p>
+      <div class="fellowship-pills">
+        <span class="pill">MIT Presidential Fellowship</span>
+        <span class="pill">NSF GRFP</span>
+        <span class="pill">Bryll Fellowship</span>
+        <span class="pill">Whitehead Innovation Award</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <section>
+      <div class="section-label">Bio</div>
+      <div class="bio-text">
+        <p>I am a current PhD student at MIT advised by <a href="https://wi.mit.edu/people/member/li">Pulin Li</a>, a member of the Whitehead Institute. My research focuses on how we represent biological perturbation problems meaningfully in AI/ML approaches and create tools that illuminate aspects of biology that were not previously possible.</p>
+        <p>Much of my graduate work has focused on predictively modeling stem cell engineering and identifying which combinations of perturbations drive cells into desired states. I am broadly interested in expanding and using the uncertainty quantification toolbox to better understand the properties of ML models in biology.</p>
+        <p>I have enjoyed working with many collaborators throughout my PhD, most notably at <a href="https://www.kira-learning.com/">Kira Learning</a>, <a href="https://www.gc-tx.com/">GC Therapeutics</a>, and <a href="https://www.microsoft.com/en-us/research/theme/biomedical-ml/people/">Microsoft Research New England</a>.</p>
+        <p>Before starting my PhD, I was a research associate at Twist Bioscience and received my BS from Caltech.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Publications</div>
+      <div class="pub-list">
+
+        <div class="pub">
+          <div class="pub-year">2026</div>
+          <div class="pub-body">
+            <div class="pub-title">Reconstructing signaling histories of single cells via perturbation screens and transfer learning</div>
+            <div class="pub-authors"><strong>Nicholas Hutchins</strong>, Miram Meziane, Claire Lu, Maisam Mitalipova, David Fischer, Pulin Li</div>
+            <div class="pub-venue">Nature Methods <span class="pub-badge">Accepted</span></div>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-year">2026</div>
+          <div class="pub-body">
+            <div class="pub-title">Discovering What Is Possible: How Synthetic Biology Illuminates Development</div>
+            <div class="pub-authors"><strong>Nicholas Hutchins</strong>*, Alex Cao*, Pulin Li</div>
+            <div class="pub-venue">Cell Systems <span class="pub-badge">Accepted</span></div>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-year">2018</div>
+          <div class="pub-body">
+            <div class="pub-title">Monomerization of Far-Red Fluorescent Proteins</div>
+            <div class="pub-authors">Timothy M. Wannier, Sarah Gillespie, <strong>Nicholas Hutchins</strong>, R. Scott McIsaac, Sheng-Yi Wu, Yi Shen, Robert E. Campbell, Kevin S. Brown, Stephen L. Mayo</div>
+            <div class="pub-venue">Proceedings of the National Academy of Sciences · Nov. 13</div>
+            <div class="pub-figure">
+              <img src="pnas-fig3.jpeg" alt="PNAS figure 3" onerror="this.parentElement.style.display='none'">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Talks</div>
+      <div class="talks-grid">
+        <div class="talk">
+          <div class="talk-venue">AIChE</div>
+          <div class="talk-title">Annual Meeting · Boston, MA</div>
+          <div class="talk-type">abstract · 2025</div>
+        </div>
+        <div class="talk">
+          <div class="talk-venue">ISSCR</div>
+          <div class="talk-title">AI and Digital Biology Symposium · Seattle, WA</div>
+          <div class="talk-type">abstract · 2025</div>
+        </div>
+        <div class="talk">
+          <div class="talk-venue">Keystone</div>
+          <div class="talk-title">AI in Molecular Biology · Santa Fe, NM</div>
+          <div class="talk-type">abstract · 2025</div>
+        </div>
+        <div class="talk">
+          <div class="talk-venue">AIChE</div>
+          <div class="talk-title">Annual Meeting · San Diego, CA</div>
+          <div class="talk-type">abstract · 2024</div>
+        </div>
+        <div class="talk">
+          <div class="talk-venue">BioTM</div>
+          <div class="talk-title">Bioengineering and Translational Medicine · San Diego, CA</div>
+          <div class="talk-type">abstract · 2024</div>
+        </div>
+        <div class="talk">
+          <div class="talk-venue">SCDBM</div>
+          <div class="talk-title">Santa Cruz Developmental Biology Meeting · Santa Cruz, CA</div>
+          <div class="talk-type">abstract · 2024</div>
+        </div>
+        <div class="talk">
+          <div class="talk-venue">IMSBW</div>
+          <div class="talk-title">International Mammalian Synthetic Biology Workshop · Boston, MA</div>
+          <div class="talk-type">abstract · 2024</div>
+        </div>
+        <div class="talk">
+          <div class="talk-venue">Whitehead</div>
+          <div class="talk-title">Whitehead Institute Forum · Boston, MA</div>
+          <div class="talk-type">dept. · 2024</div>
+        </div>
+        <div class="talk">
+          <div class="talk-venue">MIT BTS</div>
+          <div class="talk-title">Bioengineering and Toxicology Seminar · Boston, MA</div>
+          <div class="talk-type">dept. · 2023–24</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-label">Poster Presentations</div>
+      <div class="poster-list">
+        <div class="poster">
+          <div class="poster-dot"></div>
+          <div class="poster-text">
+            Lucy Xu*, Dagney Cooke, <strong>Nicholas Hutchins</strong>, Tony Cox.
+            <em>A New Twist on Antibody Library Engineering.</em>
+            <span class="poster-venue">PEGS 2019 Boston · Apr. 8, 2019</span>
+          </div>
+        </div>
+        <div class="poster">
+          <div class="poster-dot"></div>
+          <div class="poster-text">
+            Xiaozhe Ding*, Claire N. Bedbrook, <strong>Nicholas Hutchins</strong>, Viviana Gradinaru.
+            <em>Engineering Prokaryotic Repressors for Optical Sensing of Neurotransmitters.</em>
+            <span class="poster-venue">Society for Neuroscience Conference · 2017</span>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:0.8rem; color:var(--ink-faint); margin-top:1.2rem; font-family:var(--mono);">* presenter</p>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Nicholas Hutchins · MIT &amp; Whitehead Institute</p>
+  </footer>
+
+</div>
+</body>
+</html>
