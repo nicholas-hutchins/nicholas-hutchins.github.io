@@ -196,6 +196,21 @@
     margin-bottom: 0.25rem;
   }
 
+  .pub-title a {
+    color: inherit;
+    text-decoration: none;
+    background-image: linear-gradient(var(--accent-light), var(--accent-light));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 1px;
+    transition: background-size 0.15s, color 0.15s;
+  }
+
+  .pub-title a:hover {
+    color: var(--accent);
+    background-size: 100% 100%;
+  }
+
   .pub-authors {
     font-size: 0.85rem;
     color: var(--ink-muted);
@@ -214,6 +229,25 @@
     font-weight: 300;
     color: var(--accent-mid);
     letter-spacing: 0.04em;
+  }
+
+  .pub-doi {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-light);
+    transition: border-color 0.15s;
+  }
+
+  .pub-doi:hover { border-color: var(--accent); }
+
+  .pub-doi::before {
+    content: '↗';
+    font-size: 10px;
+    margin-right: 4px;
   }
 
   .pub-badge {
@@ -242,6 +276,17 @@
     display: block;
     width: 100%;
     height: auto;
+  }
+
+  .pub-figure figcaption {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+    padding: 0.55rem 0.7rem;
+    background: var(--paper-card);
+    border-top: 1px solid var(--rule);
   }
 
   .talk {
@@ -393,21 +438,32 @@
         <div class="pub">
           <div class="pub-year">2026</div>
           <div class="pub-body">
-            <div class="pub-title">Discovering What Is Possible: How Synthetic Biology Illuminates Development</div>
+            <div class="pub-title"><a href="https://www.cell.com/cell-systems/abstract/S2405-4712(26)00101-8" target="_blank" rel="noopener">Discovering What Is Possible: How Synthetic Biology Illuminates Development</a></div>
             <div class="pub-authors"><strong>Nicholas Hutchins</strong>*, Alex Cao*, Pulin Li</div>
             <div class="pub-venue">Cell Systems <span class="pub-badge">Accepted</span></div>
+            <div style="margin-top:0.4rem;">
+              <a class="pub-doi" href="https://doi.org/10.1016/j.cels.2026.101619" target="_blank" rel="noopener">doi.org/10.1016/j.cels.2026.101619</a>
+            </div>
+            <figure class="pub-figure">
+              <img src="cell-systems-fig2.jpeg" alt="Cell Systems Figure 2 — bottom-up reconstitution of cell sorting" onerror="this.parentElement.style.display='none'">
+              <figcaption>Fig. 2 — Bottom-up reconstitution of cell sorting and the discovery of its relevance in vivo.</figcaption>
+            </figure>
           </div>
         </div>
 
         <div class="pub">
           <div class="pub-year">2018</div>
           <div class="pub-body">
-            <div class="pub-title">Monomerization of Far-Red Fluorescent Proteins</div>
+            <div class="pub-title"><a href="https://www.pnas.org/doi/10.1073/pnas.1807449115" target="_blank" rel="noopener">Monomerization of Far-Red Fluorescent Proteins</a></div>
             <div class="pub-authors">Timothy M. Wannier, Sarah Gillespie, <strong>Nicholas Hutchins</strong>, R. Scott McIsaac, Sheng-Yi Wu, Yi Shen, Robert E. Campbell, Kevin S. Brown, Stephen L. Mayo</div>
-            <div class="pub-venue">Proceedings of the National Academy of Sciences · Nov. 13</div>
-            <div class="pub-figure">
-              <img src="pnas-fig3.jpeg" alt="PNAS figure 3" onerror="this.parentElement.style.display='none'">
+            <div class="pub-venue">Proceedings of the National Academy of Sciences · 115(48) E11294–E11301 · Nov. 13, 2018</div>
+            <div style="margin-top:0.4rem;">
+              <a class="pub-doi" href="https://doi.org/10.1073/pnas.1807449115" target="_blank" rel="noopener">doi.org/10.1073/pnas.1807449115</a>
             </div>
+            <figure class="pub-figure">
+              <img src="pnas-fig3.jpeg" alt="PNAS figure 3" onerror="this.parentElement.style.display='none'">
+              <figcaption>Fig. 3 — Bright, far-red monomeric RFP variants (mGinger, mKelly series).</figcaption>
+            </figure>
           </div>
         </div>
 
@@ -488,11 +544,7 @@
       <p style="font-size:0.8rem; color:var(--ink-faint); margin-top:1.2rem; font-family:var(--mono);">* presenter</p>
     </section>
 
-  </div>
-</body>
-</html>
-
-<section>
+    <section>
       <div class="section-label">Mentorship</div>
       <div class="talks-grid">
 
@@ -535,4 +587,6 @@
     <p>Nicholas Hutchins · MIT &amp; Whitehead Institute</p>
   </footer>
 
-
+</div>
+</body>
+</html>
